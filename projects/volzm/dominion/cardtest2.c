@@ -32,12 +32,7 @@ int main (int argc, char* argv[])
 
   // copy the game state to a test case
   memcpy(&test_hand2, &test_hand1, sizeof(struct gameState));
-
-  // execute the card for test_hand1 and check for return value
-  if(villageFunc(handpos,player,&test_hand1) != 0) {
-    printf("Error: greathallFunc return was non-zero\n");
-    totalErrorCount++;
-  }
+  cardEffect(village, choice1, choice2, choice3, &test_hand1, handpos, &bonus);
   player = whoseTurn(&test_hand2);
 
   // Check the player's hand count

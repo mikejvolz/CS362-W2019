@@ -22,7 +22,6 @@ int main (int argc, char* argv[])
   int seed = 1000;
   int numPlayers = 2;
   int player=0;
-  int return_val;
 
   struct gameState test_hand1, test_hand2;
   int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
@@ -33,12 +32,7 @@ int main (int argc, char* argv[])
   printf("\n----------Testing Card: %s----------\n",TESTCARD);
 
   memcpy(&test_hand2, &test_hand1, sizeof(struct gameState));
-
-  // execute the card for test_hand1 and check for return value
-  if(greathallFunc(handpos,player,&test_hand1) != 0) {
-    printf("Error: greathallFunc return was non-zero\n");
-    totalErrorCount++;
-  }
+  cardEffect(great_hall, choice1, choice2, choice3, &test_hand1, handpos, &bonus);
 
   // Check the player's hand for card added by drawCard
   if(test_hand1.hand[player][test_hand2.handCount[player]-1] == -1) {

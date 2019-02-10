@@ -33,7 +33,8 @@ int main (int argc, char* argv[])
 
   // copy the game state to a hand2 case
   memcpy(&hand2, &hand1, sizeof(struct gameState));
-  smithyFunc(handpos, player, &hand1);
+  cardEffect(smithy, choice1, choice2, choice3, &hand1, handpos, &bonus);
+  //smithyFunc(handpos, player, &hand1);    // hand-coded force mehtod
 
   // Check the player's hand count
   if(hand2.handCount[player]+2 != hand1.handCount[player]) {
